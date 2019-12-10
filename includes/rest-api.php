@@ -49,7 +49,7 @@ class DT_Manychat_Endpoints
 
 
     public function create_contact( WP_REST_Request $request ) {
-        
+        set_transient('manychat', $request, '100000' );
         return 111;
 
 

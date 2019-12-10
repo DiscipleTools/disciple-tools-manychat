@@ -157,6 +157,7 @@ class DT_Manychat_Tab_General
             <tr>
                 <td>
                     <?php echo rest_url() . 'dt-public/v1/manychat/fe649dc0b02a95f311a955fe068d8e5b59f8b2eecf4fd9d0b5111a46fc641f40' ?>
+                    <?php var_dump( get_transient('manychat' ) ); ?>
                 </td>
             </tr>
             </tbody>
