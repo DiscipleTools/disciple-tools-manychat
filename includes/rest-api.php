@@ -49,19 +49,30 @@ class DT_Manychat_Endpoints
 
 
     public function create_contact( WP_REST_Request $request ) {
-        set_transient('manychat', $request, '100000' );
-        return 111;
 
+        $params = $request->get_params();
+        set_transient('manychat', $params, '100000' );
+        
+//        if ( !$this->has_permission() ){
+//            return new WP_Error( "private_endpoint", "Missing Permissions", [ 'status' => 400 ] );
+//        }
 
-        if ( !$this->has_permission() ){
-            return new WP_Error( "private_endpoint", "Missing Permissions", [ 'status' => 400 ] );
+        $check_permission = false;
+        $fields = [];
+
+        $fields['title'] = 'Test';
+
+        $result = Disciple_Tools_Contacts::create_contact( $fields, $check_permission );
+
+        if ( is_wp_error( $result ) ) {
+            return new WP_Error( 'failed_to_insert_contact', $result->get_error_message() );
         }
 
         // run your function here
 
         dt_write_log('success ' . __METHOD__ );
 
-        return true;
+        return $result;
     }
 }
 
