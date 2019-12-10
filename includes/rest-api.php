@@ -3,8 +3,10 @@
  * Rest API example class
  */
 
-
-class DT_Starter_Plugin_Endpoints
+/**
+ * Class DT_Manychat_Endpoints
+ */
+class DT_Manychat_Endpoints
 {
     public $permissions = [ 'view_any_contacts', 'view_project_metrics' ];
 
@@ -33,26 +35,49 @@ class DT_Starter_Plugin_Endpoints
 
     //See https://github.com/DiscipleTools/disciple-tools-theme/wiki/Site-to-Site-Link for outside of wordpress authentication
     public function add_api_routes() {
-        $namespace = 'dt-sample/v1';
+        $namespace = 'dt-public/v1';
 
         register_rest_route(
-            $namespace, '/endpoint', [
+            $namespace, '/manychat', [
                 [
                     'methods'  => WP_REST_Server::CREATABLE,
-                    'callback' => [ $this, 'private_endpoint' ],
+                    'callback' => [ $this, 'create_contact' ],
                 ],
             ]
         );
     }
 
 
-    public function endpoint( WP_REST_Request $request ) {
+    public function create_contact( WP_REST_Request $request ) {
+        return true;
         if ( !$this->has_permission() ){
             return new WP_Error( "private_endpoint", "Missing Permissions", [ 'status' => 400 ] );
         }
 
         // run your function here
 
+        dt_write_log('success ' . __METHOD__ );
+
         return true;
     }
+}
+
+/**
+ * Site Link Types
+ */
+add_filter( 'site_link_type', 'manychat_link_type', 10, 1 );
+add_filter( 'site_link_type_capabilities', 'manychat_type_capabilities', 10, 1 );
+
+function manychat_link_type( $types ){
+    if ( !isset( $types["manychat"] ) ){
+        $types["manychat"] = "ManyChat";
+    }
+    return $types;
+}
+function manychat_type_capabilities( $args ){
+    if ( $args['connection_type'] === "manychat" ){
+        $args['capabilities'][] = 'create_contact';
+        $args['capabilities'][] = 'update_contact';
+    }
+    return $args;
 }

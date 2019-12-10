@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: Disciple Tools - Starter_Plugin\n"
+"Project-Id-Version: Disciple Tools - ManyChat\n"
 "POT-Creation-Date: 2018-01-29 05:56-0700\n"
 "PO-Revision-Date: 2018-01-29 05:53-0700\n"
 "Last-Translator: \n"
@@ -32,9 +32,9 @@ msgstr ""
 
 #: disciple-tools-starter-plugin.php:267
 msgid ""
-"'Disciple Tools - Starter_Plugin' requires 'Disciple Tools' theme to work. "
+"'Disciple Tools - ManyChat' requires 'Disciple Tools' theme to work. "
 "Please activate 'Disciple Tools' theme or deactivate 'Disciple Tools - "
-"Starter_Plugin' plugin."
+"ManyChat' plugin."
 msgstr ""
 
 #: includes/admin/admin-menu-and-tabs.php:61
@@ -107,7 +107,7 @@ msgid "There is no changelog available."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Disciple Tools - Starter_Plugin"
+msgid "Disciple Tools - ManyChat"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -116,7 +116,7 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Disciple Tools - Starter Plugin is intended to help developers and "
+"Disciple Tools - ManyChat is intended to help developers and "
 "integrator jumpstart their extension"
 msgstr ""
 
