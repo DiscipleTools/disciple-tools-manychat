@@ -49,7 +49,10 @@ class DT_Manychat_Endpoints
 
 
     public function create_contact( WP_REST_Request $request ) {
+        
         return 111;
+
+
         if ( !$this->has_permission() ){
             return new WP_Error( "private_endpoint", "Missing Permissions", [ 'status' => 400 ] );
         }
