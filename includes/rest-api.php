@@ -72,7 +72,7 @@ class DT_Manychat_Endpoints
         $token_status = false;
         foreach ( $post_ids as $post_id ) {
             $token = get_post_meta( $post_id, 'token', true );
-            if ( $token === $headers['token'] ) {
+            if ( $token === $headers['token'][0] ?? false ) {
                 $token_status = true;
             }
         }
