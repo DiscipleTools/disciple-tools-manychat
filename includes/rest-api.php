@@ -65,6 +65,7 @@ class DT_Manychat_Endpoints
 
         $check_permission = false;
         $fields = [];
+        $notes = [];
 
         $fields['title'] = $params['name'] ?? $params['first_name'] ?? $params['key'] ?? 'No ID Supplied By ManyChat';
         $fields['sources'] = [
@@ -86,7 +87,8 @@ class DT_Manychat_Endpoints
                 ]
             ];
         }
-        $fields['notes'] = $params['live_chat_url'] ?? '';
+        $notes['chat_url'] = $params['live_chat_url'] ?? '';
+        $fields['notes'] = $notes;
 
         $result = Disciple_Tools_Contacts::create_contact( $fields, $check_permission );
 
