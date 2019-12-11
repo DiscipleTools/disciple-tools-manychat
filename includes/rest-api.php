@@ -161,9 +161,9 @@ class DT_Manychat_Endpoints
 
         $contact_id = sanitize_text_field( wp_unslash( $params['post_id'] ) );
         $comment_html = sanitize_text_field( wp_unslash( $params['message'] ) );
-        $notify = (bool) $params['notify'] ?? false;
+        $skip_notification = (bool) $params['skip_notification'] ?? false;
 
-        $result = Disciple_Tools_Contacts::add_comment( $contact_id, $comment_html, "comment", [], false, $notify );
+        $result = Disciple_Tools_Contacts::add_comment( $contact_id, $comment_html, "comment", [], false, $skip_notification );
 
         if ( is_wp_error( $result ) ) {
             return new WP_Error( 'failed_to_insert_comment', $result->get_error_message() );
