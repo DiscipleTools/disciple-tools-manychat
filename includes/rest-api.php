@@ -64,6 +64,11 @@ class DT_Manychat_Endpoints
             }
         }
 
+        // test user agent
+        if ( ( $headers['user_agent'][0] ?? false ) !== 'ManyChat' ) {
+            return new WP_Error( __METHOD__, "Not ManChat user agent", [ 'status' => 400 ] );
+        }
+
         // test token
         $post_ids = Site_Link_System::get_list_of_sites_by_type( [ 'manychat' ], 'post_ids' );
         if ( empty( $post_ids ) ) {
