@@ -41,7 +41,7 @@ class DT_Manychat_Endpoints
             $namespace, '/manychat', [
                 [
                     'methods'  => WP_REST_Server::CREATABLE,
-                    'callback' => [ $this, 'create_contact' ],
+                    'callback' => [ $this, 'route_request' ],
                 ],
             ]
         );
