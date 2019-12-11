@@ -51,18 +51,41 @@ class DT_Manychat_Endpoints
     public function create_contact( WP_REST_Request $request ) {
 
         $params = $request->get_params();
-        set_transient('manychat', $params, '100000' );
+        $headers = $request->get_headers();
+        $current_ip = Site_Link_System::get_real_ip_address();
 
-        // @todo test for matching API key
 
-//        if ( !$this->has_permission() ){
-//            return new WP_Error( "private_endpoint", "Missing Permissions", [ 'status' => 400 ] );
-//        }
-
-        if ( empty( $params ) ) {
-            return new WP_Error( __METHOD__, "Missing Params", [ 'status' => 400 ] );
+        // fails honeypot
+        if ( ! empty( $fails = get_transient('manychat_fails') ) ) {
+            if ( isset( $fails['ip'] ) && $fails['ip'] === $current_ip ) {
+                if ( $fails['ip'] > 10 ) {
+                    return new WP_Error( __METHOD__, "Too many attempts", [ 'status' => 400 ] );
+                }
+            }
         }
 
+        // test token
+        $post_ids = Site_Link_System::get_list_of_sites_by_type( [ 'manychat' ], 'post_ids' );
+        if ( empty( $post_ids ) ) {
+            return new WP_Error( __METHOD__, "No manychat links setup", [ 'status' => 400 ] );
+        }
+        $token_status = false;
+        foreach ( $post_ids as $post_id ) {
+            $token = get_post_meta( $post_id, 'token', true );
+            if ( $token === $headers['token'] ) {
+                $token_status = true;
+            }
+        }
+        if ( ! $token_status ) {
+            $fails = get_transient('manychat_fails');
+            if ( ! isset( $fails['ip'] ) ) {
+                $fails['ip'] = 0;
+            }
+            $fails['ip'] = $fails['ip']++;
+            set_transient('manychat_fails', $fails, 6000 );
+            return new WP_Error( __METHOD__, "Mismatch api token", [ 'status' => 400 ] );
+        }
+        
         $check_permission = false;
         $fields = [];
         $notes = [];
