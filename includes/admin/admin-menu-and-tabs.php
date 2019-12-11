@@ -89,8 +89,8 @@ class DT_Manychat_Menu {
         <div class="wrap">
             <h2><?php esc_attr_e( 'ManyChat', 'dt_manychat' ) ?></h2>
             <h2 class="nav-tab-wrapper">
-                <a href="<?php echo esc_attr( $link ) . 'general' ?>" class="nav-tab <?php ( $tab == 'general' || ! isset( $tab ) ) ? esc_attr_e( 'nav-tab-active', 'dt_manychat' ) : print ''; ?>"><?php esc_attr_e( 'General', 'dt_manychat' ) ?></a>
-                <a href="<?php echo esc_attr( $link ) . 'second' ?>" class="nav-tab <?php ( $tab == 'second' ) ? esc_attr_e( 'nav-tab-active', 'dt_manychat' ) : print ''; ?>"><?php esc_attr_e( 'Second', 'dt_manychat' ) ?></a>
+                <a href="<?php echo esc_attr( $link ) . 'general' ?>" class="nav-tab <?php ( $tab == 'general' || ! isset( $tab ) ) ? esc_attr_e( 'nav-tab-active', 'dt_manychat' ) : print ''; ?>"><?php esc_attr_e( 'Configuration', 'dt_manychat' ) ?></a>
+                <a href="<?php echo esc_attr( $link ) . 'second' ?>" class="nav-tab <?php ( $tab == 'second' ) ? esc_attr_e( 'nav-tab-active', 'dt_manychat' ) : print ''; ?>"><?php esc_attr_e( 'Instructions', 'dt_manychat' ) ?></a>
             </h2>
 
             <?php
@@ -134,8 +134,6 @@ class DT_Manychat_Tab_General
                     <div id="postbox-container-1" class="postbox-container">
                         <!-- Right Column -->
 
-                        <?php $this->right_column() ?>
-
                         <!-- End Right Column -->
                     </div><!-- postbox-container 1 -->
                     <div id="postbox-container-2" class="postbox-container">
@@ -159,7 +157,7 @@ class DT_Manychat_Tab_General
 
                 <table class="widefat striped">
                     <thead>
-                    <th><h2>MANYCHAT SETUP FOR CREATING A NEW RECORD</h2></th>
+                    <th><h2>FOR CREATING A NEW RECORD</h2></th>
                     </thead>
                     <tbody>
                     <tr>
@@ -253,7 +251,7 @@ class DT_Manychat_Tab_General
                 <br>
                 <table class="widefat striped">
                     <thead>
-                    <th><h2>MANYCHAT SETUP FOR LOGGING COMMENT</h2></th>
+                    <th><h2>FOR LOGGING COMMENTS</h2></th>
                     </thead>
                     <tbody>
                     <tr>
@@ -351,7 +349,8 @@ class DT_Manychat_Tab_General
                 <tbody>
                 <tr>
                     <td>
-                        You need to setup a "manychat" site to site link. <?php echo esc_url( admin_url() )  ?>
+                        You need to setup a "manychat" site to site link. <a href="<?php echo esc_url( admin_url() ) . 'post-new.php?post_type=site_link_system'  ?>">Create New Site Link</a>
+
                     </td>
                 </tr>
                 </tbody>
@@ -394,7 +393,7 @@ class DT_Manychat_Tab_Second
         ?>
         <div class="wrap">
             <div id="poststuff">
-                <div id="post-body" class="metabox-holder columns-2">
+                <div id="post-body" class="metabox-holder columns-1">
                     <div id="post-body-content">
                         <!-- Main Column -->
 
@@ -404,8 +403,6 @@ class DT_Manychat_Tab_Second
                     </div><!-- end post-body-content -->
                     <div id="postbox-container-1" class="postbox-container">
                         <!-- Right Column -->
-
-                        <?php $this->right_column() ?>
 
                         <!-- End Right Column -->
                     </div><!-- postbox-container 1 -->
@@ -419,21 +416,22 @@ class DT_Manychat_Tab_Second
 
     public function main_column() {
         ?>
-        <!-- Box -->
-        <table class="widefat striped">
-            <thead>
-            <th>Header</th>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    Content
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <br>
-        <!-- End Box -->
+        <h1>Initial Setup Instructions</h1>
+        <hr>
+        <ol>
+            <li>
+                Create a "ManyChat" Site-to-site Link. <a href="<?php echo esc_url( admin_url() ) . '/post-new.php?post_type=site_link_system'  ?>">Create new link</a>
+                <ol style="list-style-type: lower-alpha;">
+                    <li>Give the link any title you want.</li>
+                    <li>Add site #1 as "manychat"</li>
+                    <li>Add site #2 as the current site. (Hint: Use the auto fill link)</li>
+                    <li>Set the type to "ManyChat".</li>
+                </ol>
+            </li>
+            <li>
+                Make sure you have configuration information on the "Configuration" Tab. <a href="">Tab</a>
+            </li>
+        </ol>
         <?php
     }
 
