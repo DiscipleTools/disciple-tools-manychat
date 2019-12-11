@@ -148,23 +148,56 @@ class DT_Manychat_Tab_General
 
     public function main_column() {
         ?>
-        <!-- Box -->
-        <table class="widefat striped">
-            <thead>
-            <th>Setup Instructions</th>
-            </thead>
-            <tbody>
-            <tr>
-                <td>
-                    <?php echo rest_url() . 'dt-public/v1/manychat/fe649dc0b02a95f311a955fe068d8e5b59f8b2eecf4fd9d0b5111a46fc641f40' ?><br><br>
-                    <?php print '<pre>'; print_r( get_transient('manychat' ) ); print '</pre>'; ?>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <br>
-        <!-- End Box -->
+
         <?php
+        $post_ids = Site_Link_System::get_list_of_sites_by_type( [ 'manychat' ], 'post_ids' );
+        if ( ! empty( $post_ids ) ) {
+            foreach ( $post_ids as $post_id ) {
+                ?>
+                <!-- Box -->
+                <table class="widefat striped">
+                    <thead>
+                    <th>Available Link</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            URL: <?php echo rest_url() . 'dt-public/v1/manychat/'; ?><br>
+                            Token: <?php echo get_post_meta( $post_id, 'token', true ); ?>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br>
+                <!-- End Box -->
+                <?php
+            }
+
+        }
+        else {
+            ?>
+            <!-- Box -->
+            <table class="widefat striped">
+                <thead>
+                <th>Setup Instructions</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <?php print '<pre>'; print_r( get_transient('manychat' ) ); print '</pre>'; ?>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <!-- End Box -->
+            <?php
+        }
+
+        print '<pre>';
+        print_r(get_transient('manychat'));
+        print '</pre>';
     }
 
     public function right_column() {
