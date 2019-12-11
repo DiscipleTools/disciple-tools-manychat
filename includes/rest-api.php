@@ -47,8 +47,8 @@ class DT_Manychat_Endpoints
         );
     }
 
+    public function route_request( WP_REST_Request $request ) {
 
-    public function create_contact( WP_REST_Request $request ) {
         $params = $request->get_params();
         $headers = $request->get_headers();
         $current_ip = Site_Link_System::get_real_ip_address();
@@ -91,6 +91,22 @@ class DT_Manychat_Endpoints
             return new WP_Error( __METHOD__, "Mismatch api token", [ 'status' => 400 ] );
         }
 
+        switch ( $headers['action'][0] ) {
+            case 'create':
+                return $this->create_contact( $params );
+                break;
+            case 'update':
+                break;
+            default:
+                break;
+        }
+
+
+    }
+
+    public function create_contact( $params ) {
+
+        // build create record
         $check_permission = false;
         $fields = [];
         $notes = [];

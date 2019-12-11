@@ -162,9 +162,8 @@ class DT_Manychat_Tab_General
                     <tbody>
                     <tr>
                         <td>
-                            URL: <?php echo rest_url() . 'dt-public/v1/manychat/'; ?><br>
+                            URL: <?php echo rest_url() . 'dt-public/v1/manychat/'; ?><br><br>
                             Token: <?php echo get_post_meta( $post_id, 'token', true ); ?>
-
                         </td>
                     </tr>
                     </tbody>
