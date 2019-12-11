@@ -92,12 +92,12 @@ class DT_Manychat_Endpoints
         }
 
         switch ( $headers['action'][0] ) {
-            case 'create':
-                return $this->create_contact( $params );
-                break;
             case 'update':
+                return $this->update_contact( $params );
                 break;
             default:
+            case 'create':
+                return $this->create_contact( $params );
                 break;
         }
 
@@ -150,7 +150,15 @@ class DT_Manychat_Endpoints
         dt_write_log('success ' . __METHOD__ );
 
         return [
+            "status" => 'success',
             "post_id" => $result
+        ];
+    }
+
+    public function update_contact( $params ) {
+        return [
+            "status" => 'success',
+            "post_id" => 111
         ];
     }
 }
