@@ -159,7 +159,11 @@ class DT_Manychat_Endpoints
 
     public function comment( $params ) {
 
-        $result = Disciple_Tools_Contacts::add_comment( $params['post_id'], $params['message'] );
+
+        $contact_id = sanitize_text_field( wp_unslash( $params['post_id'] ) );
+        $comment_html = sanitize_text_field( wp_unslash( $params['message'] ) );
+
+        $result = Disciple_Tools_Contacts::add_comment( $contact_id, $comment_html, "comment", [], false );
 
         if ( is_wp_error( $result ) ) {
             return new WP_Error( 'failed_to_insert_comment', $result->get_error_message() );
@@ -187,7 +191,7 @@ function manychat_link_type( $types ){
 function manychat_type_capabilities( $args ){
     if ( $args['connection_type'] === "manychat" ){
         $args['capabilities'][] = 'create_contact';
-        $args['capabilities'][] = 'update_contact';
+        $args['capabilities'][] = 'update_any_contact';
     }
     return $args;
 }
