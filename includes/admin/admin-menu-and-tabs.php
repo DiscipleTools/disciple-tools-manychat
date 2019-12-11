@@ -155,20 +155,187 @@ class DT_Manychat_Tab_General
             foreach ( $post_ids as $post_id ) {
                 ?>
                 <!-- Box -->
+                <H1>Site Connection: <?php echo get_the_title($post_id); ?></H1><hr>
+
                 <table class="widefat striped">
                     <thead>
-                    <th>Available Link</th>
+                    <th><h2>MANYCHAT SETUP FOR CREATING A NEW RECORD</h2></th>
                     </thead>
                     <tbody>
                     <tr>
                         <td>
-                            URL: <?php echo rest_url() . 'dt-public/v1/manychat/'; ?><br><br>
-                            Token: <?php echo get_post_meta( $post_id, 'token', true ); ?>
+                            <table class="widefat striped">
+                                <thead>
+                                <th>URL</th>
+                                <th></th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Request Type:</strong><br><code>POST</code>
+                                    </td>
+                                    <td>
+                                        <strong>Request URL:</strong><br><code><?php echo rest_url() . 'dt-public/v1/manychat/'; ?></code>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="widefat striped">
+                                <thead>
+                                <th>Headers</th>
+                                <th></th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Key</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Value</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>token</code></td>
+                                    <td><code><?php echo get_post_meta($post_id, 'token', true) ?></code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>action</code></td>
+                                    <td><code>create</code></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="widefat striped">
+                                <thead>
+                                <th>Body</th>
+                                </thead>
+                                <tbody>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <code>Add Full Subscriber Data</code> Note: this is a pre-defined selection in the manychat setup box.
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="widefat striped">
+                                <thead>
+                                <th>Response mapping</th>
+                                <th></th>
+                                </thead>
+                                <tbody>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>JSONPath</strong><br><code>$.post_id</code>
+                                    </td>
+                                    <td>
+                                        <strong>Select Custom Field</strong><br><code>dt_post_id</code> Note: You will need to create this custom field "dt_post_id".
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </td>
                     </tr>
                     </tbody>
                 </table>
                 <br>
+                <table class="widefat striped">
+                    <thead>
+                    <th><h2>MANYCHAT SETUP FOR LOGGING COMMENT</h2></th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <table class="widefat striped">
+                                <thead>
+                                <th>URL</th>
+                                <th></th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Request Type:</strong><br><code>POST</code>
+                                    </td>
+                                    <td>
+                                        <strong>Request URL:</strong><br><code><?php echo rest_url() . 'dt-public/v1/manychat/'; ?></code>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="widefat striped">
+                                <thead>
+                                <th>Headers</th>
+                                <th></th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Key</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Value</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>token</code></td>
+                                    <td><code><?php echo get_post_meta($post_id, 'token', true) ?></code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>action</code></td>
+                                    <td><code>comment</code></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="widefat striped">
+                                <thead>
+                                <th>Body</th>
+                                </thead>
+                                <tbody>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                    <code>{"post_id": dt_post_id,"message": "Second Step","skip_notification": true}</code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <hr>
+                                        Notes:<br>
+                                        <ul>
+                                            <li>"post_id" = (int) This is the Contact record id from Disciple Tools that was saved during the create record process. You can also add this to a record directly through their contact page in Manychat.</li>
+                                        <li>Note: <code>dt_post_id</code> is the live variable added from the custom field drop down. This custom field must be created before it will show up in the drop down.</li>
+                                        <li>"message" = (string) This can be any string of any length. It will be logged into the comments area of the contact record.</li>
+                                        <li>"skip_notification" = (bool) This is either set to true or false and it controls whether the contact owner in Disciple Tools gets a notification that the comment was added. True means "do not notify", False means notify.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br><br>
                 <!-- End Box -->
                 <?php
             }
@@ -194,9 +361,6 @@ class DT_Manychat_Tab_General
             <?php
         }
 
-        print '<pre>';
-        print_r(get_transient('manychat'));
-        print '</pre>';
     }
 
     public function right_column() {

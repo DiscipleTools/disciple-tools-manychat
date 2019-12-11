@@ -7,10 +7,9 @@ class DT_Manychat_Live_Chat_Box {
             global $post;
             $url = get_post_meta( $post->ID, 'manychat_live_chat', true );
             ?>
-            <span class="padding-1"><a href="<?php echo esc_url( $url ) ?>" target="_blank" class="button expanded">Launch ManyChat Live Chat</a></span>
+            <span class="padding-1"><a href="<?php echo esc_url( $url ) ?>" target="_blank" class="button expanded"><?php esc_html_e("Launch ManyChat Live Chat", 'manychat' ) ?></a></span>
         <?php
         endif;
-
     }
 
     public function filter_box( $sections, $post_type = '' ) {
@@ -22,7 +21,6 @@ class DT_Manychat_Live_Chat_Box {
         }
         return $sections;
     }
-
 
     public function __construct() {
         add_action( 'dt_details_additional_section', [ $this, 'detail_box' ] );
