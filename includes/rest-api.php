@@ -49,11 +49,11 @@ class DT_Manychat_Endpoints
 
 
     public function create_contact( WP_REST_Request $request ) {
-
         $params = $request->get_params();
         $headers = $request->get_headers();
         $current_ip = Site_Link_System::get_real_ip_address();
 
+        set_transient('manychat', $headers, 6000 );
 
         // fails honeypot
         if ( ! empty( $fails = get_transient('manychat_fails') ) ) {
@@ -85,7 +85,7 @@ class DT_Manychat_Endpoints
             set_transient('manychat_fails', $fails, 6000 );
             return new WP_Error( __METHOD__, "Mismatch api token", [ 'status' => 400 ] );
         }
-        
+
         $check_permission = false;
         $fields = [];
         $notes = [];
