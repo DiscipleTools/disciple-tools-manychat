@@ -7,7 +7,7 @@ class DT_Manychat_Live_Chat_Box {
             global $post;
             $url = get_post_meta( $post->ID, 'manychat_live_chat', true );
             ?>
-            <a href="<?php echo esc_url( $url ) ?>" target="_blank" class="button">Launch ManyChat Live Chat</a>
+            <span class="padding-1"><a href="<?php echo esc_url( $url ) ?>" target="_blank" class="button expanded">Launch ManyChat Live Chat</a></span>
         <?php
         endif;
 
