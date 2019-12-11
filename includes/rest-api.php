@@ -112,27 +112,36 @@ class DT_Manychat_Endpoints
         $fields = [];
         $notes = [];
 
-        $fields['title'] = $params['name'] ?? $params['first_name'] ?? $params['key'] ?? 'No ID Supplied By ManyChat';
+        // sanitize vars
+        $name = sanitize_text_field( wp_unslash( $params['name'] ) );
+        $first_name = sanitize_text_field( wp_unslash( $params['first_name'] ) );
+        $key = sanitize_text_field( wp_unslash( $params['key'] ) );
+        $phone = sanitize_text_field( wp_unslash( $params['phone'] ) );
+        $email = sanitize_text_field( wp_unslash( $params['email'] ) );
+        $live_chat_url = sanitize_text_field( wp_unslash( $params['live_chat_url'] ) );
+
+        // build fields
+        $fields['title'] = $name ?? $first_name ?? $key ?? 'No ID Supplied By ManyChat';
         $fields['sources'] = [
             "values" => [
                 [ "value" => "manychat" ]
             ]
         ];
-        if ( isset( $params['phone'] ) && ! empty( $params['phone'] ) ) {
+        if ( isset( $phone ) && ! empty( $phone ) ) {
             $fields['contact_phone'] = [
                 "values" => [
-                    [ "value" => $params['phone'] ]
+                    [ "value" => $phone ]
                 ]
             ];
         }
-        if ( isset( $params['email'] ) && ! empty( $params['email'] ) ) {
+        if ( isset( $email ) && ! empty( $email ) ) {
             $fields['contact_email'] = [
                 "values" => [
-                    [ "value" => $params['eamil'] ]
+                    [ "value" => $email ]
                 ]
             ];
         }
-        $notes['chat_url'] = $params['live_chat_url'] ?? '';
+        $notes['chat_url'] = $live_chat_url ?? '';
         $fields['notes'] = $notes;
 
         $result = Disciple_Tools_Contacts::create_contact( $fields, $check_permission );
@@ -141,14 +150,10 @@ class DT_Manychat_Endpoints
             return new WP_Error( 'failed_to_insert_contact', $result->get_error_message() );
         }
 
-        update_post_meta( $result, 'manychat_subscribed', $params['subscribed'] );
-        update_post_meta( $result, 'manychat_key', $params['key'] );
-        update_post_meta( $result, 'manychat_id', $params['id'] );
-        update_post_meta( $result, 'manychat_page_id', $params['page_id'] );
+        // additional metafields
+        update_post_meta( $result, 'manychat_post_data', $params );
+        update_post_meta( $result, 'manychat_live_chat', $live_chat_url );
 
-        // run your function here
-
-        dt_write_log('success ' . __METHOD__ );
 
         return [
             "version" => "v2",

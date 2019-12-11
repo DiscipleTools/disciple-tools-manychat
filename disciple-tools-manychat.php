@@ -119,7 +119,10 @@ class DT_Manychat {
      * @return void
      */
     private function includes() {
-        require_once( 'includes/admin/admin-menu-and-tabs.php' );
+        require_once( 'includes/live-chat-metabox.php' );
+        if ( is_admin() ) {
+            require_once( 'includes/admin/admin-menu-and-tabs.php' );
+        }
     }
 
     /**

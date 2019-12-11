@@ -184,7 +184,7 @@ class DT_Manychat_Tab_General
                 <tbody>
                 <tr>
                     <td>
-                        <?php print '<pre>'; print_r( get_transient('manychat' ) ); print '</pre>'; ?>
+                        You need to setup a "manychat" site to site link. <?php echo esc_url( admin_url() )  ?>
                     </td>
                 </tr>
                 </tbody>
