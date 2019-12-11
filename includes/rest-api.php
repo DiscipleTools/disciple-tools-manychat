@@ -92,15 +92,16 @@ class DT_Manychat_Endpoints
         }
 
         switch ( $headers['action'][0] ) {
-            case 'update':
-                return $this->update_contact( $params );
+            case 'comment':
+                return $this->comment( $params );
                 break;
-            default:
             case 'create':
                 return $this->create_contact( $params );
                 break;
+            default:
+                return new WP_Error( __METHOD__, "Mismatch api token", [ 'status' => 400 ] );
+                break;
         }
-
 
     }
 
@@ -150,15 +151,23 @@ class DT_Manychat_Endpoints
         dt_write_log('success ' . __METHOD__ );
 
         return [
+            "version" => "v2",
             "status" => 'success',
             "post_id" => $result
         ];
     }
 
-    public function update_contact( $params ) {
+    public function comment( $params ) {
+
+        $result = Disciple_Tools_Contacts::add_comment( $params['post_id'], $params['message'] );
+
+        if ( is_wp_error( $result ) ) {
+            return new WP_Error( 'failed_to_insert_comment', $result->get_error_message() );
+        }
+
         return [
+            "version" => "v2",
             "status" => 'success',
-            "post_id" => 111
         ];
     }
 }
