@@ -472,13 +472,13 @@ class DT_Manychat_Tab_Second
         <hr>
         <h1>Example Screens</h1>
 
-        <div style="float: left;padding:5px;">Create Header Screen<br><img src="<?php echo plugin_dir_url(__DIR__) . '../images/mc-edit-headers-create.png' ?>" alt="request" style="max-height: 500px;" /></div>
-        <div style="float: left;padding:5px;">Create Body Screen<br><img src="<?php echo plugin_dir_url(__DIR__) . '../images/mc-edit-body-create.png' ?>" alt="request" style="max-height: 500px;" /></div>
-        <div style="float: left;padding:5px;">Create Response mapping Screen<br><img src="<?php echo plugin_dir_url(__DIR__) . '../images/mc-edit-responsemapping-create.png' ?>" alt="request" style="max-height: 500px;" /></div>
-        <div style="float: left;padding:5px;">Comment Header Screen<br><img src="<?php echo plugin_dir_url(__DIR__) . '../images/mc-edit-headers-comment.png' ?>" alt="request" style="max-height: 500px;" /></div>
-        <div style="float: left;padding:5px;">Comment Body Screen<br><img src="<?php echo plugin_dir_url(__DIR__) . '../images/mc-edit-body-comment.png' ?>" alt="request" style="max-height: 500px;" /></div>
-        <div style="float: left;padding:5px;">External Request action selection<br><img src="<?php echo plugin_dir_url(__DIR__) . '../images/mc-external-request-action.png' ?>" alt="request" /></div>
-        <div style="float: left;padding:5px;">Link to live chat from Contact Record<br><img src="<?php echo plugin_dir_url(__DIR__) . '../images/live-chat-button.png' ?>" alt="request" /></div>
+        <div style="float: left;padding:5px;">Create Header Screen<br><img src="<?php echo esc_url( plugin_dir_url( __DIR__ ) ) . '../images/mc-edit-headers-create.png' ?>" alt="request" style="max-height: 500px;" /></div>
+        <div style="float: left;padding:5px;">Create Body Screen<br><img src="<?php echo esc_url( plugin_dir_url( __DIR__ ) ) . '../images/mc-edit-body-create.png' ?>" alt="request" style="max-height: 500px;" /></div>
+        <div style="float: left;padding:5px;">Create Response mapping Screen<br><img src="<?php echo esc_url( plugin_dir_url( __DIR__ ) ) . '../images/mc-edit-responsemapping-create.png' ?>" alt="request" style="max-height: 500px;" /></div>
+        <div style="float: left;padding:5px;">Comment Header Screen<br><img src="<?php echo esc_url( plugin_dir_url( __DIR__ ) ) . '../images/mc-edit-headers-comment.png' ?>" alt="request" style="max-height: 500px;" /></div>
+        <div style="float: left;padding:5px;">Comment Body Screen<br><img src="<?php echo esc_url( plugin_dir_url( __DIR__ ) ) . '../images/mc-edit-body-comment.png' ?>" alt="request" style="max-height: 500px;" /></div>
+        <div style="float: left;padding:5px;">External Request action selection<br><img src="<?php echo esc_url( plugin_dir_url( __DIR__ ) ) . '../images/mc-external-request-action.png' ?>" alt="request" /></div>
+        <div style="float: left;padding:5px;">Link to live chat from Contact Record<br><img src="<?php echo esc_url( plugin_dir_url( __DIR__ ) ) . '../images/live-chat-button.png' ?>" alt="request" /></div>
 
         <?php
     }

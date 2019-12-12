@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-starter-plugin-template.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-starter-plugin-template)
+[![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-manychat.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-manychat)
 
 # Disciple Tools - ManyChat Integration
 This is a "proof of concept" project to create an integration between Disciple Tools and ManyChat. The purpose is to get a 
