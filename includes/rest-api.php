@@ -53,8 +53,6 @@ class DT_Manychat_Endpoints
         $headers = $request->get_headers();
         $current_ip = Site_Link_System::get_real_ip_address();
 
-
-
         // fails honeypot
         if ( ! empty( $fails = get_transient('manychat_fails') ) ) {
             if ( isset( $fails['ip'] ) && $fails['ip'] === $current_ip ) {
