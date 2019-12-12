@@ -164,7 +164,7 @@ class DT_Manychat_Tab_General
                         <td>
                             <table class="widefat striped">
                                 <thead>
-                                <th>URL</th>
+                                <th style="width:15%;">URL</th>
                                 <th></th>
                                 </thead>
                                 <tbody>
@@ -184,7 +184,7 @@ class DT_Manychat_Tab_General
                         <td>
                             <table class="widefat striped">
                                 <thead>
-                                <th>Headers</th>
+                                <th style="width:15%;">Headers</th>
                                 <th></th>
                                 </thead>
                                 <tbody>
@@ -212,7 +212,7 @@ class DT_Manychat_Tab_General
                         <td>
                             <table class="widefat striped">
                                 <thead>
-                                <th>Body</th>
+                                <th style="width:15%;">Body</th>
                                 </thead>
                                 <tbody>
                                 <tbody>
@@ -229,7 +229,7 @@ class DT_Manychat_Tab_General
                         <td>
                             <table class="widefat striped">
                                 <thead>
-                                <th>Response mapping</th>
+                                <th style="width:15%;">Response mapping</th>
                                 <th></th>
                                 </thead>
                                 <tbody>
@@ -260,7 +260,7 @@ class DT_Manychat_Tab_General
                         <td>
                             <table class="widefat striped">
                                 <thead>
-                                <th>URL</th>
+                                <th style="width:15%;">URL</th>
                                 <th></th>
                                 </thead>
                                 <tbody>
@@ -280,7 +280,7 @@ class DT_Manychat_Tab_General
                         <td>
                             <table class="widefat striped">
                                 <thead>
-                                <th>Headers</th>
+                                <th style="width:15%;">Headers</th>
                                 <th></th>
                                 </thead>
                                 <tbody>
@@ -308,7 +308,7 @@ class DT_Manychat_Tab_General
                         <td>
                             <table class="widefat striped">
                                 <thead>
-                                <th>Body</th>
+                                <th style="width:15%;">Body</th>
                                 </thead>
                                 <tbody>
                                 <tbody>
