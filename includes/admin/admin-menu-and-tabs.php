@@ -155,7 +155,7 @@ class DT_Manychat_Tab_General
                 <!-- Box -->
                 <H1>Site Connection: <?php echo get_the_title($post_id); ?></H1><hr>
 
-                <table class="widefat striped">
+                <table class="widefat striped" style="border-width: 5px;">
                     <thead>
                     <th><h2>FOR CREATING A NEW RECORD</h2></th>
                     </thead>
@@ -249,7 +249,9 @@ class DT_Manychat_Tab_General
                     </tbody>
                 </table>
                 <br>
-                <table class="widefat striped">
+
+
+                <table class="widefat striped" style="border-width: 5px;">
                     <thead>
                     <th><h2>FOR LOGGING COMMENTS</h2></th>
                     </thead>
@@ -313,18 +315,6 @@ class DT_Manychat_Tab_General
                                 <tr>
                                     <td>
                                     <code>{"post_id": dt_post_id,"message": "Second Step","skip_notification": true}</code>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <hr>
-                                        Notes:<br>
-                                        <ul>
-                                            <li>"post_id" = (int) This is the Contact record id from Disciple Tools that was saved during the create record process. You can also add this to a record directly through their contact page in Manychat.</li>
-                                        <li>Note: <code>dt_post_id</code> is the live variable added from the custom field drop down. This custom field must be created before it will show up in the drop down.</li>
-                                        <li>"message" = (string) This can be any string of any length. It will be logged into the comments area of the contact record.</li>
-                                        <li>"skip_notification" = (bool) This is either set to true or false and it controls whether the contact owner in Disciple Tools gets a notification that the comment was added. True means "do not notify", False means notify.</li>
-                                        </ul>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -416,8 +406,8 @@ class DT_Manychat_Tab_Second
 
     public function main_column() {
         ?>
-        <h1>Initial Setup Instructions</h1>
         <hr>
+        <h1>Initial Setup Instructions</h1>
         <ol>
             <li>
                 Create a "ManyChat" Site-to-site Link. <a href="<?php echo esc_url( admin_url() ) . '/post-new.php?post_type=site_link_system'  ?>">Create new link</a>
@@ -429,9 +419,58 @@ class DT_Manychat_Tab_Second
                 </ol>
             </li>
             <li>
-                Make sure you have configuration information on the "Configuration" Tab. <a href="">Tab</a>
+                Make sure you have configuration information on the "Configuration" Tab. <a href="<?php echo esc_url( admin_url() ) . 'admin.php?page=dt_manychat&tab=general'  ?>">Configuration Tab</a>
+            </li>
+            <li>
+                In ManyChat create an "Action" in one of your workflows. This action needs to be an "External Request".
+                <ol style="list-style-type: lower-alpha;">
+                    <li>Add External Request Action step to a "Flow"</li>
+                    <li>Open External Request Action dialogue box.</li>
+                    <li>Transfer the connection information from the "Configuration" Tab under the heading "For Creating A New Record" to the fields in the External Request dialogue box.</li>
+                    <ol style="list-style-type: lower-roman;">
+                        <li>Set Request Type to POST</li>
+                        <li>Copy URL to Request URL box.</li>
+                        <li>Add to "Header" section two key/value fields: token: {provided value from configuration tab}, and action: "create" </li>
+                        <li>Add to "Body" section the pre-defined "Add Full Subscriber Data"</li>
+                        <li>Add to "Response mapping" section, JSONPath: '$.post_id', Select Custom Field: 'dt_post_id'. Note: add the custom field 'dt_post_id' if you haven't already.</li>
+                    </ol>
+                </ol>
+            </li>
+            <li>
+                Test connection. You should see a new contact created in Disciple Tools. You will also get a response of 200/success.
             </li>
         </ol>
+        <hr>
+        <h1>Comment Setup Instructions</h1>
+
+        <ol>
+            <li>Make sure you have gone through the setup steps above.</li>
+            <li>
+                In ManyChat create an "Action" in one of your workflows. This action needs to be an "External Request".
+                <ol style="list-style-type: lower-alpha;">
+                    <li>Add External Request Action step to a "Flow"</li>
+                    <li>Open External Request Action dialogue box.</li>
+                    <li>Transfer the connection information from the "Configuration" Tab under the heading "For Logging Comments" to the fields in the External Request dialogue box.</li>
+                    <ol style="list-style-type: lower-roman;">
+                        <li>Set Request Type to POST</li>
+                        <li>Copy URL to Request URL box.</li>
+                        <li>Add to "Header" section two key/value fields: token: {provided value from configuration tab}, and action: "comment" </li>
+                        <li>Add to "Body" section the pre-defined string provided in the configuration body section. This is a JSON string and must be copied exactly.<br>
+                            <ol style="list-style-type: lower-alpha;">
+                                <li>"post_id" = (int) This is the Contact record id from Disciple Tools that was saved during the create record process. You can also add this to a record directly through their contact page in Manychat.</li>
+                                <li>Note: <code>dt_post_id</code> is the live variable added from the custom field drop down. This custom field must be created before it will show up in the drop down.</li>
+                                <li>"message" = (string) This can be any string of any length. It will be logged into the comments area of the contact record.</li>
+                                <li>"skip_notification" = (bool) This is either set to true or false and it controls whether the contact owner in Disciple Tools gets a notification that the comment was added. True means "do not notify", False means notify.</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </ol>
+            </li>
+            <li>
+                Test connection. You should see a new contact created in Disciple Tools. You will also get a response of 200/success.
+            </li>
+        </ol>
+        <hr>
         <?php
     }
 
