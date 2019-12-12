@@ -33,7 +33,7 @@ these are the two functions supported. Again, feel free to fork the project and 
         <ol style="list-style-type: lower-alpha;">
             <li>Add External Request Action step to a "Flow"</li>
             <li>Open External Request Action dialogue box.</li>
-            <li>Transfer the connection information from the "Configuration" Tab under the heading "For Creating A New Record" to the fields in the External Request dialogue box.</li>
+            <li>Transfer the connection information from the "Configuration" Tab under the heading "For Creating A New Record" to the fields in the External Request dialogue box.
             <ol style="list-style-type: lower-roman;">
                 <li>Set Request Type to POST</li>
                 <li>Copy URL to Request URL box.</li>
@@ -41,6 +41,7 @@ these are the two functions supported. Again, feel free to fork the project and 
                 <li>Add to "Body" section the pre-defined "Add Full Subscriber Data"</li>
                 <li>Add to "Response mapping" section, JSONPath: '$.post_id', Select Custom Field: 'dt_post_id'. Note: add the custom field 'dt_post_id' if you haven't already.</li>
             </ol>
+            </li>
         </ol>
     </li>
     <li>
@@ -79,5 +80,44 @@ these are the two functions supported. Again, feel free to fork the project and 
     </li>
 </ol>
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+---
+###### Button on Contact in Disciple Tools linking back to Live Chat (if available)
+
+![alt text](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/live-chat-button.png "Live Chat Button")
+---
+###### ManyChat Action Example
+
+![alt text](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/mc-external-request-action.png "External Request Action Selection")
+
+
+
+___
+## Setup for Create Contact
+###### ManyChat Edit Request Screen -- Create Contact - Header Tab Example
+
+![alt text](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/mc-edit-headers-create.png "Edit Headers Section for Create")
+---
+###### ManyChat Edit Request Screen - Create Contact - Body Tab Example
+
+![alt text](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/mc-edit-body-create.png "Edit Body Section for Create")
+---
+###### ManyChat Edit Request Screen - Body Tab Example
+
+![alt text](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/mc-edit-responsemapping-create.png "Response Mapping Screen")
+
+
+
+___
+## Setup for Comment
+###### ManyChat Edit Request Screen - Body Tab Example
+
+![alt text](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/mc-edit-headers-comment.png "Edit Headers Section for Comments")
+---
+###### ManyChat Edit Request Screen - Body Tab Example
+
+![alt text](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/mc-edit-body-comment.png "Edit Body Section for Comments")
+---
+
+
+
 

@@ -277,8 +277,8 @@ class DT_Manychat {
 // end main plugin class
 
 // Register activation hook.
-register_activation_hook( __FILE__, [ 'DT_Manychat', 'activation' ] );
-register_deactivation_hook( __FILE__, [ 'DT_Manychat', 'deactivation' ] );
+register_activation_hook( __FILE__, array( 'DT_Manychat', 'activation' ) );
+register_deactivation_hook( __FILE__, array( 'DT_Manychat', 'deactivation' ) );
 
 function dt_manychat_hook_admin_notice() {
     global $dt_manychat_required_dt_theme_version;

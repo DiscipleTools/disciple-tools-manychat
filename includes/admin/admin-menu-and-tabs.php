@@ -58,8 +58,8 @@ class DT_Manychat_Menu {
      * @since 0.1
      */
     public function register_menu() {
-        add_menu_page( __( 'Extensions (DT)', 'disciple_tools' ), __( 'Extensions (DT)', 'disciple_tools' ), 'manage_dt', 'dt_extensions', [ $this, 'extensions_menu' ], 'dashicons-admin-generic', 59 );
-        add_submenu_page( 'dt_extensions', __( 'ManyChat', 'dt_manychat' ), __( 'ManyChat', 'dt_manychat' ), 'manage_dt', $this->token, [ $this, 'content' ] );
+        add_menu_page( __( 'Extensions (DT)', 'disciple_tools' ), __( 'Extensions (DT)', 'disciple_tools' ), 'manage_dt', 'dt_extensions', array( $this, 'extensions_menu' ), 'dashicons-admin-generic', 59 );
+        add_submenu_page( 'dt_extensions', __( 'ManyChat', 'dt_manychat' ), __( 'ManyChat', 'dt_manychat' ), 'manage_dt', $this->token, array( $this, 'content' ) );
     }
 
     /**
@@ -148,12 +148,12 @@ class DT_Manychat_Tab_General
         ?>
 
         <?php
-        $post_ids = Site_Link_System::get_list_of_sites_by_type( [ 'manychat' ], 'post_ids' );
+        $post_ids = Site_Link_System::get_list_of_sites_by_type( array( 'manychat' ), 'post_ids' );
         if ( ! empty( $post_ids ) ) {
             foreach ( $post_ids as $post_id ) {
                 ?>
                 <!-- Box -->
-                <H1>Site Connection: <?php echo get_the_title($post_id); ?></H1><hr>
+                <h1>Site Connection: <?php echo esc_html( get_the_title( $post_id ) ); ?></h1><hr>
 
                 <table class="widefat striped" style="border-width: 5px;">
                     <thead>
@@ -173,7 +173,7 @@ class DT_Manychat_Tab_General
                                         <strong>Request Type:</strong><br><code>POST</code>
                                     </td>
                                     <td>
-                                        <strong>Request URL:</strong><br><code><?php echo rest_url() . 'dt-public/v1/manychat/'; ?></code>
+                                        <strong>Request URL:</strong><br><code><?php echo esc_url( rest_url() ) . 'dt-public/v1/manychat/'; ?></code>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -198,7 +198,7 @@ class DT_Manychat_Tab_General
                                 </tr>
                                 <tr>
                                     <td><code>token</code></td>
-                                    <td><code><?php echo get_post_meta($post_id, 'token', true) ?></code></td>
+                                    <td><code><?php echo esc_attr( get_post_meta( $post_id, 'token', true ) ) ?></code></td>
                                 </tr>
                                 <tr>
                                     <td><code>action</code></td>
@@ -269,7 +269,7 @@ class DT_Manychat_Tab_General
                                         <strong>Request Type:</strong><br><code>POST</code>
                                     </td>
                                     <td>
-                                        <strong>Request URL:</strong><br><code><?php echo rest_url() . 'dt-public/v1/manychat/'; ?></code>
+                                        <strong>Request URL:</strong><br><code><?php echo esc_url( rest_url() ) . 'dt-public/v1/manychat/'; ?></code>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -294,7 +294,7 @@ class DT_Manychat_Tab_General
                                 </tr>
                                 <tr>
                                     <td><code>token</code></td>
-                                    <td><code><?php echo get_post_meta($post_id, 'token', true) ?></code></td>
+                                    <td><code><?php echo esc_attr( get_post_meta( $post_id, 'token', true ) ) ?></code></td>
                                 </tr>
                                 <tr>
                                     <td><code>action</code></td>
@@ -327,7 +327,6 @@ class DT_Manychat_Tab_General
                 <!-- End Box -->
                 <?php
             }
-
         }
         else {
             ?>
