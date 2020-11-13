@@ -143,7 +143,7 @@ class DT_Manychat_Endpoints
         $notes['chat_url'] = $live_chat_url ?? '';
         $fields['notes'] = $notes;
 
-        $result = Disciple_Tools_Contacts::create_contact( $fields, $check_permission );
+        $result = DT_Posts::create_post( "contacts", $fields, $check_permission );
 
         if ( is_wp_error( $result ) ) {
             return new WP_Error( 'failed_to_insert_contact', $result->get_error_message() );
@@ -167,7 +167,7 @@ class DT_Manychat_Endpoints
         $comment_html = sanitize_text_field( wp_unslash( $params['message'] ) );
         $skip_notification = (bool) $params['skip_notification'] ?? false;
 
-        $result = Disciple_Tools_Contacts::add_comment( $contact_id, $comment_html, "comment", array(), false, $skip_notification );
+        $result = DT_Posts::add_post_comment( "contacts", $contact_id, $comment_html, "comment", array(), false, $skip_notification );
 
         if ( is_wp_error( $result ) ) {
             return new WP_Error( 'failed_to_insert_comment', $result->get_error_message() );
