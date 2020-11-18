@@ -415,6 +415,7 @@ class DT_Manychat_Tab_Second
                     <li>Add site #1 as "manychat"</li>
                     <li>Add site #2 as the current site. (Hint: Use the auto fill link)</li>
                     <li>Set the type to "ManyChat".</li>
+                    <li>Set Disciple.Tools Site to "No, connection for a non-Disciple.Tools system" (this turns off the default connection checker).</li>
                 </ol>
             </li>
             <li>
