@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/DiscipleTools/disciple-tools-starter-plugin
  * Description: Disciple Tools - ManyChat is a lightweight integration tool for contact creation.
  * of the Disciple Tools system.
- * Version:  0.1.0
+ * Version:  0.2
  * Author URI: https://github.com/DiscipleTools
  * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-starter-plugin
  * Requires at least: 4.7.0
@@ -21,7 +21,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
-$dt_manychat_required_dt_theme_version = '0.19.0';
+$dt_manychat_required_dt_theme_version = '0.28.0';
 
 /**
  * Gets the instance of the `DT_Manychat` class.
@@ -146,7 +146,7 @@ class DT_Manychat {
 
         // Admin and settings variables
         $this->token             = 'dt_manychat';
-        $this->version             = '0.1';
+        $this->version             = '0.2';
 
         // sample rest api class
         require_once( 'includes/rest-api.php' );
@@ -167,20 +167,12 @@ class DT_Manychat {
             if ( ! class_exists( 'Puc_v4_Factory' ) ) {
                 require( get_template_directory() . '/dt-core/libraries/plugin-update-checker/plugin-update-checker.php' );
             }
-            /**
-             * Below is the publicly hosted .json file that carries the version information. This file can be hosted
-             * anywhere as long as it is publicly accessible. You can download the version file listed below and use it as
-             * a template.
-             * Also, see the instructions for version updating to understand the steps involved.
-             * @see https://github.com/DiscipleTools/disciple-tools-version-control/wiki/How-to-Update-the-Starter-Plugin
-             */
-//            @todo enable this section with your own hosted file
-//            $hosted_json = "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/disciple-tools-starter-plugin-version-control.json";
-//            Puc_v4_Factory::buildUpdateChecker(
-//                $hosted_json,
-//                __FILE__,
-//                'disciple-tools-starter-plugin'
-//            );
+            $hosted_json = "https://disciple.tools/wp-content/themes/disciple-tools-public-site/version-control.php?id=c08ee2a296e9cc80f185cf84596b17f6dc4e29df05c403f2b0fb077876289cb8";
+            Puc_v4_Factory::buildUpdateChecker(
+                $hosted_json,
+                __FILE__,
+                'disciple-tools-manychat'
+            );
         }
 
         // Internationalize the text strings used.

@@ -1,15 +1,23 @@
 [![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-manychat.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-manychat)
 
 # Disciple Tools - ManyChat Integration
-This is a "proof of concept" project to create an integration between Disciple Tools and ManyChat. The purpose is to get a 
-basic contact creation integration in place. Please, feel free to fork the project and take it further. 
+This is a "proof of concept" project to create an integration between Disciple Tools and ManyChat. The purpose is to get a
+basic contact creation integration in place. Please, feel free to fork the project and take it further.
+
+---
+
+> WARNING: Because the [Disciple Tools - Facebook](https://github.com/DiscipleTools/disciple-tools-facebook) plugin creates records for all direct messages, it is recommended to use the
+Facebook plugin over this plugin, or if using this plugin DO NOT USE the Facebook plugin. Using both will create
+potentially duplicate records.
+
+---
 
 This plugin will connect ManyChat to Disciple Tools in three ways:
 1. An External Request Action in ManyChat can create a contact record in Disciple Tools from the ManyChat subscriber
 and return to ManyChat the post_id of the Disciple Tools contact and store it in a custom field on the ManyChat subscriber record.
 1. An External Request Action in ManyChat can send a message to Disciple Tools to log a comment to a contact record. (i.e. "subscriber
 accomplished action X" or "subscriber was sent X campaign")
-1. The plugin adds a button to a contact record which links back to a ManyChat's live chat interface. 
+1. The plugin adds a button to a contact record which links back to a ManyChat's live chat interface.
 
 Obviously, there are a number of other integrations that would be interesting and helpful, but for this version 1 effort
 these are the two functions supported. Again, feel free to fork the project and improve on it.
