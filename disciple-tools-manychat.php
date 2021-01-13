@@ -1,15 +1,14 @@
 <?php
 /**
  * Plugin Name: Disciple Tools - ManyChat
- * Plugin URI: https://github.com/DiscipleTools/disciple-tools-starter-plugin
+ * Plugin URI: https://github.com/DiscipleTools/disciple-tools-manychat
  * Description: Disciple Tools - ManyChat is a lightweight integration tool for contact creation.
- * of the Disciple Tools system.
- * Version:  0.2
+ * Version:  0.3
  * Author URI: https://github.com/DiscipleTools
- * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-starter-plugin
+ * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-manychat
  * Requires at least: 4.7.0
  * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
- * Tested up to: 4.9
+ * Tested up to: 5.6
  *
  * @package Disciple_Tools
  * @link    https://github.com/DiscipleTools
@@ -138,15 +137,9 @@ class DT_Manychat {
         $this->dir_path     = trailingslashit( plugin_dir_path( __FILE__ ) );
         $this->dir_uri      = trailingslashit( plugin_dir_url( __FILE__ ) );
 
-        // Plugin directory paths.
-        $this->includes_path      = trailingslashit( $this->dir_path . 'includes' );
-
-        // Plugin directory URIs.
-        $this->img_uri      = trailingslashit( $this->dir_uri . 'img' );
-
         // Admin and settings variables
         $this->token             = 'dt_manychat';
-        $this->version             = '0.2';
+        $this->version             = '0.3';
 
         // sample rest api class
         require_once( 'includes/rest-api.php' );
