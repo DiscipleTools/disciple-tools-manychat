@@ -25,7 +25,7 @@ these are the two functions supported. Again, feel free to fork the project and 
 ## Create Contact Setup
 <ol>
     <li>
-        Create a "ManyChat" Site-to-site Link. <a href="<?php echo esc_url( admin_url() ) . '/post-new.php?post_type=site_link_system'  ?>">Create new link</a>
+        Create a "ManyChat" Site-to-site Link.
         <ol style="list-style-type: lower-alpha;">
             <li>Give the link any title you want.</li>
             <li>Add site #1 as "manychat"</li>
@@ -34,7 +34,7 @@ these are the two functions supported. Again, feel free to fork the project and 
         </ol>
     </li>
     <li>
-        Make sure you have configuration information on the "Configuration" Tab. <a href="<?php echo esc_url( admin_url() ) . 'admin.php?page=dt_manychat&tab=general'  ?>">Configuration Tab</a>
+        Make sure you have configuration information on the "Configuration" Tab.
     </li>
     <li>
         In ManyChat create an "Action" in one of your workflows. This action needs to be an "External Request".
