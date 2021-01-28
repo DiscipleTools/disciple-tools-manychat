@@ -3,7 +3,7 @@
  * Plugin Name: Disciple Tools - ManyChat
  * Plugin URI: https://github.com/DiscipleTools/disciple-tools-manychat
  * Description: Disciple Tools - ManyChat is a lightweight integration tool for contact creation.
- * Version:  0.3
+ * Version:  0.4
  * Author URI: https://github.com/DiscipleTools
  * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-manychat
  * Requires at least: 4.7.0
@@ -160,7 +160,7 @@ class DT_Manychat {
             if ( ! class_exists( 'Puc_v4_Factory' ) ) {
                 require( get_template_directory() . '/dt-core/libraries/plugin-update-checker/plugin-update-checker.php' );
             }
-            $hosted_json = "https://disciple.tools/wp-content/themes/disciple-tools-public-site/version-control.php?id=c08ee2a296e9cc80f185cf84596b17f6dc4e29df05c403f2b0fb077876289cb8";
+            $hosted_json = "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/version-control.json";
             Puc_v4_Factory::buildUpdateChecker(
                 $hosted_json,
                 __FILE__,
