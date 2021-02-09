@@ -143,7 +143,7 @@ class DT_Manychat_Endpoints
         $notes['chat_url'] = $live_chat_url ?? '';
         $fields['notes'] = $notes;
 
-        $result = DT_Posts::create_post( "contacts", $fields, $check_permission );
+        $result = DT_Posts::create_post( "contacts", $fields, false, $check_permission );
 
         if ( is_wp_error( $result ) ) {
             return new WP_Error( 'failed_to_insert_contact', $result->get_error_message() );
@@ -194,8 +194,8 @@ function manychat_link_type( $types ){
 }
 function manychat_type_capabilities( $args ){
     if ( $args['connection_type'] === "manychat" ){
-        $args['capabilities'][] = 'create_contact';
-        $args['capabilities'][] = 'update_any_contact';
+        $args['capabilities'][] = 'create_contacts';
+        $args['capabilities'][] = 'update_any_contacts';
     }
     return $args;
 }
