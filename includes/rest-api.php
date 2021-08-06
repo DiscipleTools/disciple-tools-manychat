@@ -42,6 +42,7 @@ class DT_Manychat_Endpoints
                 array(
                     'methods'  => WP_REST_Server::CREATABLE,
                     'callback' => array( $this, 'route_request' ),
+                    'permission_callback' => '__return_true',
                 ),
             )
         );
