@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-manychat.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-manychat)
 
+![ManyChat](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/manychat-banner.png)
 # Disciple Tools - ManyChat Integration
 This is a "proof of concept" project to create an integration between Disciple Tools and ManyChat. The purpose is to get a
 basic contact creation integration in place. Please, feel free to fork the project and take it further.
