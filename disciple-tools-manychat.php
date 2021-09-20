@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Disciple Tools - ManyChat
+ *Plugin Name: Disciple.Tools - ManyChat
  * Plugin URI: https://github.com/DiscipleTools/disciple-tools-manychat
  * Description: Disciple Tools - ManyChat is a lightweight integration tool for contact creation.
  * Version:  0.5.1

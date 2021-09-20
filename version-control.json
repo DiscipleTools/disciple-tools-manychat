@@ -1,8 +1,8 @@
 {
-  "name": "Disciple Tools - ManyChat Integration",
+  "name": "Disciple.Tools - ManyChat Integration",
   "version": "0.5.1",
   "last_updated": "2021-02",
-  "author": "Disciple Tools",
+  "author": "Disciple.Tools",
   "author_homepage": "https://disciple.tools",
   "git_owner": "DiscipleTools",
   "git_repo": "disciple-tools-manychat",
@@ -23,7 +23,7 @@
   },
   "icon": "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/manychat-icon.png",
   "sections": {
-    "description": "Create an integration between Disciple Tools and ManyChat. The purpose is to get a\nbasic contact creation integration in place.",
+    "description": "Create an integration between Disciple.Tools and ManyChat. The purpose is to get a\nbasic contact creation integration in place.",
     "installation": "(Required) You must have Disciple.Tools Theme installed before using this plugin. Once Disciple.Tools is installed, you can use the normal Plugin system to install the plugin.",
     "changelog": ""
   }
