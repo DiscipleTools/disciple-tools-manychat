@@ -1,22 +1,22 @@
 [![Build Status](https://travis-ci.com/DiscipleTools/disciple-tools-manychat.svg?branch=master)](https://travis-ci.com/DiscipleTools/disciple-tools-manychat)
 
 ![ManyChat](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/manychat-banner.png)
-# Disciple Tools - ManyChat Integration
-This is a "proof of concept" project to create an integration between Disciple Tools and ManyChat. The purpose is to get a
+# Disciple.Tools - ManyChat Integration
+This is a "proof of concept" project to create an integration between Disciple.Tools and ManyChat. The purpose is to get a
 basic contact creation integration in place. Please, feel free to fork the project and take it further.
 
 ---
 
-> WARNING: Because the [Disciple Tools - Facebook](https://github.com/DiscipleTools/disciple-tools-facebook) plugin creates records for all direct messages, it is recommended to use the
+> WARNING: Because the [Disciple.Tools - Facebook](https://github.com/DiscipleTools/disciple-tools-facebook) plugin creates records for all direct messages, it is recommended to use the
 Facebook plugin over this plugin, or if using this plugin DO NOT USE the Facebook plugin. Using both will create
 potentially duplicate records.
 
 ---
 
-This plugin will connect ManyChat to Disciple Tools in three ways:
-1. An External Request Action in ManyChat can create a contact record in Disciple Tools from the ManyChat subscriber
-and return to ManyChat the post_id of the Disciple Tools contact and store it in a custom field on the ManyChat subscriber record.
-1. An External Request Action in ManyChat can send a message to Disciple Tools to log a comment to a contact record. (i.e. "subscriber
+This plugin will connect ManyChat to Disciple.Tools in three ways:
+1. An External Request Action in ManyChat can create a contact record in Disciple.Tools from the ManyChat subscriber
+and return to ManyChat the post_id of the Disciple.Tools contact and store it in a custom field on the ManyChat subscriber record.
+1. An External Request Action in ManyChat can send a message to Disciple.Tools to log a comment to a contact record. (i.e. "subscriber
 accomplished action X" or "subscriber was sent X campaign")
 1. The plugin adds a button to a contact record which links back to a ManyChat's live chat interface.
 
@@ -54,7 +54,7 @@ these are the two functions supported. Again, feel free to fork the project and 
         </ol>
     </li>
     <li>
-        Test connection. You should see a new contact created in Disciple Tools. You will also get a response of 200/success.
+        Test connection. You should see a new contact created in Disciple.Tools. You will also get a response of 200/success.
     </li>
 </ol>
 
@@ -75,22 +75,22 @@ these are the two functions supported. Again, feel free to fork the project and 
                 <li>Add to "Header" section two key/value fields: token: {provided value from configuration tab}, and action: "comment" </li>
                 <li>Add to "Body" section the pre-defined string provided in the configuration body section. This is a JSON string and must be copied exactly.<br>
                     <ol style="list-style-type: lower-alpha;">
-                        <li>"post_id" = (int) This is the Contact record id from Disciple Tools that was saved during the create record process. You can also add this to a record directly through their contact page in Manychat.</li>
+                        <li>"post_id" = (int) This is the Contact record id from Disciple.Tools that was saved during the create record process. You can also add this to a record directly through their contact page in Manychat.</li>
                         <li>Note: <code>dt_post_id</code> is the live variable added from the custom field drop down. This custom field must be created before it will show up in the drop down.</li>
                         <li>"message" = (string) This can be any string of any length. It will be logged into the comments area of the contact record.</li>
-                        <li>"skip_notification" = (bool) This is either set to true or false and it controls whether the contact owner in Disciple Tools gets a notification that the comment was added. True means "do not notify", False means notify.</li>
+                        <li>"skip_notification" = (bool) This is either set to true or false and it controls whether the contact owner in Disciple.Tools gets a notification that the comment was added. True means "do not notify", False means notify.</li>
                     </ol>
                 </li>
             </ol>
         </ol>
     </li>
     <li>
-        Test connection. You should see a new contact created in Disciple Tools. You will also get a response of 200/success.
+        Test connection. You should see a new contact created in Disciple.Tools. You will also get a response of 200/success.
     </li>
 </ol>
 
 ---
-###### Button on Contact in Disciple Tools linking back to Live Chat (if available)
+###### Button on Contact in Disciple.Tools linking back to Live Chat (if available)
 
 ![alt text](https://raw.githubusercontent.com/DiscipleTools/disciple-tools-manychat/master/images/live-chat-button.png "Live Chat Button")
 ---

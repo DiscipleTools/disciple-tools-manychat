@@ -2,7 +2,7 @@
 /**
  *Plugin Name: Disciple.Tools - ManyChat
  * Plugin URI: https://github.com/DiscipleTools/disciple-tools-manychat
- * Description: Disciple Tools - ManyChat is a lightweight integration tool for contact creation.
+ * Description: Disciple.Tools - ManyChat is a lightweight integration tool for contact creation.
  * Version:  0.5.1
  * Author URI: https://github.com/DiscipleTools
  * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-manychat
@@ -40,7 +40,7 @@ function dt_manychat() {
     if ( !$is_theme_dt || version_compare( $version, $dt_manychat_required_dt_theme_version, "<" ) ) {
         add_action( 'admin_notices', 'dt_manychat_hook_admin_notice' );
         add_action( 'wp_ajax_dismissed_notice_handler', 'dt_hook_ajax_notice_handler' );
-        return new WP_Error( 'current_theme_not_dt', 'Disciple Tools Theme not active or not latest version.' );
+        return new WP_Error( 'current_theme_not_dt', 'Disciple.Tools Theme not active or not latest version.' );
     }
     /**
      * Load useful function from the theme
@@ -169,7 +169,7 @@ class DT_Manychat {
     public static function activation() {
 
         // Confirm 'Administrator' has 'manage_dt' privilege. This is key in 'remote' configuration when
-        // Disciple Tools theme is not installed, otherwise this will already have been installed by the Disciple Tools Theme
+        // Disciple.Tools theme is not installed, otherwise this will already have been installed by the Disciple.Tools Theme
         $role = get_role( 'administrator' );
         if ( !empty( $role ) ) {
             $role->add_cap( 'manage_dt' ); // gives access to dt plugin options
@@ -256,9 +256,9 @@ function dt_manychat_hook_admin_notice() {
     global $dt_manychat_required_dt_theme_version;
     $wp_theme = wp_get_theme();
     $current_version = $wp_theme->version;
-    $message = __( "'Disciple Tools - ManyChat' plugin requires 'Disciple Tools' theme to work. Please activate 'Disciple Tools' theme or make sure it is latest version.", "dt_manychat" );
+    $message = __( "'Disciple.Tools - ManyChat' plugin requires 'Disciple.Tools' theme to work. Please activate 'Disciple.Tools' theme or make sure it is latest version.", "dt_manychat" );
     if ( $wp_theme->get_template() === "disciple-tools-theme" ){
-        $message .= sprintf( esc_html__( 'Current Disciple Tools version: %1$s, required version: %2$s', 'dt_manychat' ), esc_html( $current_version ), esc_html( $dt_manychat_required_dt_theme_version ) );
+        $message .= sprintf( esc_html__( 'Current Disciple.Tools version: %1$s, required version: %2$s', 'dt_manychat' ), esc_html( $current_version ), esc_html( $dt_manychat_required_dt_theme_version ) );
     }
     // Check if it's been dismissed...
     if ( ! get_option( 'dismissed-dt-manychat', false ) ) { ?>

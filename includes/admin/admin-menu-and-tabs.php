@@ -62,7 +62,7 @@ class DT_Manychat_Menu {
     }
 
     /**
-     * Menu stub. Replaced when Disciple Tools Theme fully loads.
+     * Menu stub. Replaced when Disciple.Tools Theme fully loads.
      */
     public function extensions_menu() {}
 
@@ -72,7 +72,7 @@ class DT_Manychat_Menu {
      */
     public function content() {
 
-        if ( !current_user_can( 'manage_dt' ) ) { // manage dt is a permission that is specific to Disciple Tools and allows admins, strategists and dispatchers into the wp-admin
+        if ( !current_user_can( 'manage_dt' ) ) { // manage dt is a permission that is specific to Disciple.Tools and allows admins, strategists and dispatchers into the wp-admin
             wp_die( esc_attr__( 'You do not have sufficient permissions to access this page.' ) );
         }
 
@@ -436,7 +436,7 @@ class DT_Manychat_Tab_Second
                 </ol>
             </li>
             <li>
-                Test connection. You should see a new contact created in Disciple Tools. You will also get a response of 200/success.
+                Test connection. You should see a new contact created in Disciple.Tools. You will also get a response of 200/success.
             </li>
         </ol>
         <hr>
@@ -456,17 +456,17 @@ class DT_Manychat_Tab_Second
                         <li>Add to "Header" section two key/value fields: token: {provided value from configuration tab}, and action: "comment" </li>
                         <li>Add to "Body" section the pre-defined string provided in the configuration body section. This is a JSON string and must be copied exactly.<br>
                             <ol style="list-style-type: lower-alpha;">
-                                <li>"post_id" = (int) This is the Contact record id from Disciple Tools that was saved during the create record process. You can also add this to a record directly through their contact page in Manychat.</li>
+                                <li>"post_id" = (int) This is the Contact record id from Disciple.Tools that was saved during the create record process. You can also add this to a record directly through their contact page in Manychat.</li>
                                 <li>Note: <code>dt_post_id</code> is the live variable added from the custom field drop down. This custom field must be created before it will show up in the drop down.</li>
                                 <li>"message" = (string) This can be any string of any length. It will be logged into the comments area of the contact record.</li>
-                                <li>"skip_notification" = (bool) This is either set to true or false and it controls whether the contact owner in Disciple Tools gets a notification that the comment was added. True means "do not notify", False means notify.</li>
+                                <li>"skip_notification" = (bool) This is either set to true or false and it controls whether the contact owner in Disciple.Tools gets a notification that the comment was added. True means "do not notify", False means notify.</li>
                             </ol>
                         </li>
                     </ol>
                 </ol>
             </li>
             <li>
-                Test connection. You should see a new contact created in Disciple Tools. You will also get a response of 200/success.
+                Test connection. You should see a new contact created in Disciple.Tools. You will also get a response of 200/success.
             </li>
         </ol>
         <hr>
