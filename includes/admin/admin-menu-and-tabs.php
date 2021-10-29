@@ -93,7 +93,7 @@ class DT_Manychat_Menu {
             </h2>
 
             <?php
-            switch ($tab) {
+            switch ( $tab ) {
                 case "general":
                     $object = new DT_Manychat_Tab_General();
                     $object->content();

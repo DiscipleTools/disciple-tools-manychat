@@ -13,7 +13,7 @@ class DT_Manychat_Live_Chat_Box {
     }
 
     public function filter_box( $sections, $post_type = '' ) {
-        if ($post_type === "contacts") {
+        if ( $post_type === "contacts" ) {
             global $post;
             if ( $post && get_post_meta( $post->ID, 'manychat_live_chat', true ) ) {
                 $sections[] = 'manychat';
