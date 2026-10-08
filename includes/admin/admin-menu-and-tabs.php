@@ -49,7 +49,6 @@ class DT_Manychat_Menu {
     public function __construct() {
 
         add_action( "admin_menu", array( $this, "register_menu" ) );
-
     } // End __construct()
 
 
@@ -347,7 +346,6 @@ class DT_Manychat_Tab_General
             <!-- End Box -->
             <?php
         }
-
     }
 
     public function right_column() {
@@ -369,7 +367,6 @@ class DT_Manychat_Tab_General
         <!-- End Box -->
         <?php
     }
-
 }
 
 /**

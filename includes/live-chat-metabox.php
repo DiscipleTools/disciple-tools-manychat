@@ -26,6 +26,5 @@ class DT_Manychat_Live_Chat_Box {
         add_action( 'dt_details_additional_section', array( $this, 'detail_box' ) );
         add_filter( 'dt_details_additional_section_ids', array( $this, 'filter_box' ), 999, 2 );
     }
-
 }
 new DT_Manychat_Live_Chat_Box();

@@ -102,7 +102,6 @@ class DT_Manychat_Endpoints
                 return new WP_Error( __METHOD__, "Mismatch api token", array( 'status' => 400 ) );
                 break;
         }
-
     }
 
     public function create_contact( $params ) {
